@@ -1,6 +1,6 @@
 class Player:
     def __init__(self):
-        self.name = ""
-        self.count = 0
+        self.tally = 0
         self.gesture = ''
+
 

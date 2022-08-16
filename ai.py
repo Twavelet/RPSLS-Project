@@ -7,5 +7,4 @@ class Ai(Player):
 
 
     def user_input(self):
-        self.gesture = input("Choose")
         self.gesture2 = random.choice(gestures_list)

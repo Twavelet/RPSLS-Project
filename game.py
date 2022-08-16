@@ -12,20 +12,26 @@ class Game:
         pass
 
     def game_mode(self):
-        number_of_players = input("How many players?")
+        number_of_players = int(input("How many players?"))
         while True:
             if number_of_players == 1:
-                player_one = Ai()
+                self.player_one = Ai()
+                self.player_two = Human()
+                break
             elif number_of_players == 2:
-                player_one = Human()
+                self.player_one = Human()
+                self.player_two = Human()
+                break
             else:
                 input("Enter 1 or 2 for number of players.")
 
     def run_game(self):
-        pass
+        self.game_mode()
+        self.game_round()
 
     def game_round(self):
-        pass
+        self.player_one.user_input()
+        self.player_two.user_input()
 
     def display_winner(self):
         pass
