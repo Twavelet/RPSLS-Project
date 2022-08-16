@@ -23,7 +23,7 @@ class Game:
                 self.player_two = Human()
                 break
             else:
-                input("Enter 1 or 2 for number of players.")
+                number_of_players = int(input("Enter 1 or 2 for number of players."))
 
     def run_game(self):
         self.game_mode()
