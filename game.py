@@ -8,6 +8,9 @@ class Game:
     def instructions(self):
         pass
 
+    def game_mode(self):
+        pass
+
     def run_game(self):
         pass
 
