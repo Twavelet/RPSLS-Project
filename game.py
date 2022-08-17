@@ -1,6 +1,5 @@
 from human import Human
 from ai import Ai
-from gestures import Gestures
 
 class Game:
     def __init__(self):
@@ -19,6 +18,7 @@ class Game:
             if number_of_players == 1:
                 self.player_one = Ai()
                 self.player_two = Human()
+                print("You are Player Two.")
                 break
             elif number_of_players == 2:
                 self.player_one = Human()
@@ -36,16 +36,57 @@ class Game:
         
 
     def game_round(self):
-        self.game_one = Gestures()
         while True:
             if self.player_one.tally < 2 and self.player_two.tally < 2:
                 self.player_one.user_input()
                 self.player_two.user_input()
-                self.game_one.comparison(self.player_one, self.player_two)
+                self.comparison()
             else:
                 break
                 
-        
+    def comparison(self):
+        if self.player_one.gesture == self.player_two.gesture:
+            print("Tie. Play again.")
+
+        elif self.player_one.gesture == "rock":
+            if self.player_two.gesture == "scissors" or self.player_two.gesture == "lizard":
+                self.player_one.tally += 1
+                print(f"rock beats {self.player_two.gesture}, player one wins")
+            else:
+                self.player_two.tally += 1
+                print(f"{self.player_two.gesture} beats rock, player two wins!")
+
+        elif self.player_one.gesture == "scissors":
+            if self.player_two.gesture =="paper" or self.player_two.gesture == "lizard":
+                self.player_one.tally += 1
+                print(f"scissors beats {self.player_two.gesture}, player one wins")
+            else:
+                self.player_two.tally += 1
+                print(f"{self.player_two.gesture} beats scissors, player two wins!")
+
+        elif self.player_one.gesture == "paper":
+            if self.player_two.gesture == "rock" or self.player_two.gesture == "spock":
+                self.player_one.tally += 1
+                print(f"Paper beats {self.player_two.gesture}, player one wins")
+            else:
+                self.player_two.tally += 1
+                print(f"{self.player_two.gesture} beats paper, player two wins!")
+
+        elif self.player_one.gesture == "lizard":
+            if self.player_two.gesture == "paper" or self.player_two.gesture == "spock":
+                self.player_one.tally += 1
+                print(f"Lizard beats {self.player_two.gesture}, player one wins")
+            else:
+                self.player_two.tally += 1
+                print(f"{self.player_two.gesture} beats lizard, player two wins!")
+
+        elif self.player_one.gesture == "spock":
+            if self.player_two.gesture == "scissors" or self.player_two.gesture == "rock":
+                self.player_one.tally += 1
+                print(f"Spock beats {self.player_two.gesture}, player one wins")
+            else:
+                self.player_two.tally += 1
+                print(f"{self.player_two.gesture} beats spock, player two wins!")    
 
     def display_winner(self):
         if self.player_one.tally > self.player_two.tally:
