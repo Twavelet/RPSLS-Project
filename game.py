@@ -1,5 +1,6 @@
 from human import Human
 from ai import Ai
+from gestures import Gestures
 
 class Game:
     def __init__(self):
@@ -28,10 +29,14 @@ class Game:
     def run_game(self):
         self.game_mode()
         self.game_round()
+        
 
     def game_round(self):
         self.player_one.user_input()
+        print(self.player_one.gesture)
         self.player_two.user_input()
+        self.game_one = Gestures()
+        self.game_one.comparison()
 
     def display_winner(self):
         pass
