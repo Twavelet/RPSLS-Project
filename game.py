@@ -7,10 +7,11 @@ class Game:
         pass
 
     def welcome_player(self):
-        pass
+        print("Welcome to Rock, Paper, Scissors, Lizard, Spock")
 
     def instructions(self):
-        pass
+        print("Choose numbers of players you would like to have (1/2)")
+        print(f"Each player will choose either Rock, Paper, Scissors, Lizard, or Spock.")
 
     def game_mode(self):
         number_of_players = int(input("How many players? "))
@@ -27,6 +28,8 @@ class Game:
                 number_of_players = int(input("Enter 1 or 2 for number of players: "))
 
     def run_game(self):
+        self.welcome_player()
+        self.instructions()
         self.game_mode()
         self.game_round()
         self.display_winner()
