@@ -29,6 +29,7 @@ class Game:
     def run_game(self):
         self.game_mode()
         self.game_round()
+        self.display_winner()
         
 
     def game_round(self):
@@ -44,4 +45,7 @@ class Game:
         
 
     def display_winner(self):
-        pass
+        if self.player_one.tally > self.player_two.tally:
+            print("Player One Wins!")
+        else:
+            print("Player Two Wins!")
