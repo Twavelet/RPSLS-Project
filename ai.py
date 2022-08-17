@@ -10,4 +10,4 @@ class Ai(Player):
 
 
     def user_input(self):
-        self.gesture = random.choice(self.list.list)
+        self.gesture = random.choice(self.list.list).lower()

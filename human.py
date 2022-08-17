@@ -5,7 +5,7 @@ class Human(Player):
         super().__init__()
 
     def user_input(self):
-        self.gesture = input("Choose")
+        self.gesture = input("Choose: ").lower()
 
     
 

@@ -13,7 +13,7 @@ class Game:
         pass
 
     def game_mode(self):
-        number_of_players = int(input("How many players?"))
+        number_of_players = int(input("How many players? "))
         while True:
             if number_of_players == 1:
                 self.player_one = Ai()
@@ -24,7 +24,7 @@ class Game:
                 self.player_two = Human()
                 break
             else:
-                number_of_players = int(input("Enter 1 or 2 for number of players."))
+                number_of_players = int(input("Enter 1 or 2 for number of players: "))
 
     def run_game(self):
         self.game_mode()
@@ -32,11 +32,16 @@ class Game:
         
 
     def game_round(self):
-        self.player_one.user_input()
-        print(self.player_one.gesture)
-        self.player_two.user_input()
         self.game_one = Gestures()
-        self.game_one.comparison()
+        while True:
+            if self.player_one.tally < 2 and self.player_two.tally < 2:
+                self.player_one.user_input()
+                self.player_two.user_input()
+                self.game_one.comparison(self.player_one, self.player_two)
+            else:
+                break
+                
+        
 
     def display_winner(self):
         pass
